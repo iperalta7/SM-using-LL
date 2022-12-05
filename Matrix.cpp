@@ -25,3 +25,22 @@ void Matrix::create(int row, int col){
     }
 
 }
+
+void Matrix::read_file(std::string fname) {
+    int i = 0, j = 0;
+    std::ifstream file(fname);
+    std::string str;
+    while (std::getline(file, str)) {
+        std::istringstream ss(str);
+        int token;
+        while (ss >> token) {
+            if(token != 0 ){
+                this->add_node(i, j, token); //adds to matrix with corresponding row and col vals
+            }
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+}
+
