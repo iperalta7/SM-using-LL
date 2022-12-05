@@ -24,3 +24,20 @@ int main(int argc, char *argv[]) {
    C.create(row_1, col_2);
 
   
+    //if statement to do what user asks
+   if(choice == "M"){ //for multiply
+       if (){
+           std::cout << "\nResulting Matrix from Matrix Multiplication: \n" <<std::endl;
+           C.write();
+       }else{
+           std::cout << "Matrix Multiplication will not work with these two matrices" << std::endl;
+       }
+
+   }else if (){ //for addition
+       if(A.add(B, C)){
+           std::cout << "\nResulting Matrix from Matrix Addition: \n";
+           C.write();
+       }else{
+           std::cout << "Matrix Addition will not work with these two matrices" << std::endl;
+
+       }
