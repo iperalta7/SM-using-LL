@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
    Matrix A(row_1, col_1);
    A.create(row_1, col_1);
     A.read_file(fname1);
+    A.write();
 
 
    //creates and reads from file and prints out Matrix 2
@@ -16,6 +17,7 @@ int main(int argc, char *argv[]) {
    Matrix B(row_2, col_2);
    B.create(row_2, col_2);
    B.read_file(fname2);
+    B.write();
 
    //creates an object of Matrix C to be passed by reference for certain choices
    Matrix C(row_1, col_2);
