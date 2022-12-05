@@ -1,3 +1,7 @@
+#include <iostream>
+#include "Matrix.h"
+#include <string>
+
 int main(int argc, char *argv[]) {
     std::string fname1(argv[1]);
     int row_1 = std::stoi(argv[2]), col_1 = std::stoi(argv[3]);
@@ -23,10 +27,14 @@ int main(int argc, char *argv[]) {
    Matrix C(row_1, col_2);
    C.create(row_1, col_2);
 
+   //gets user choice from console command
+   std::string choice;
+   std::cout << "Multiply, Add, Subtract, or Transpose? (M or A or S or T): ";
+   std::cin >> choice;
   
     //if statement to do what user asks
    if(choice == "M"){ //for multiply
-       if (M.multiply(B,C){
+       if (A.multiply(B,C)){
            std::cout << "\nResulting Matrix from Matrix Multiplication: \n" <<std::endl;
            C.write();
        }else{
