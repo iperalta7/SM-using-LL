@@ -46,6 +46,37 @@ void Matrix::read_file(std::string fname) {
     }
 }
 
+void Matrix::add_node( int i, int j, int val){
+    Node *a = new Node();
+    (*a).data = val;
+    (*a).row = i;
+    (*a).column = j;
+    (*a).next_col = nullptr;
+    (*a).next_col = nullptr;
+    // initializes new node and stores the row, column, data datas.
+    // pointers in the new node are set to NULL.
+
+    if(this->first_col[j] == nullptr){ //if a col ptr is NULL, set the curr point to new node
+        this->first_col[j] = a;
+    }else{
+        Node *current = this->first_col[j];  // a pointer to the node of sparse matrix col nodes (respective column)
+        while ((*current).next_col != nullptr) {// Traverse column right before last node in linked list.
+            current = (*current).next_col;
+        }
+        current->next_col = a;              // Sets that pointer to the address of the newly created node.
+    }
+
+    if (this->first_row[i] == nullptr) {// Same thing as we did with the column pointers but with the respective rows;
+        this->first_row[i] = a;
+    }else{
+        Node *current = this->first_row[i];
+        while ((*current).next_row != nullptr) {
+            current = (*current).next_row;
+        }
+        current->next_row = a;
+    }
+}
+
 void Matrix::printzeros(int low, int high){
     for (int i=0; i < (high - low); i++)
         std::cout << std::setw(5) << 0.00;
