@@ -207,3 +207,19 @@ int Matrix::multiply(Matrix B, Matrix &C){
         return 1;
     }
 }
+
+
+void Matrix::transpose(Matrix &B){
+    for(int i = 0; i < this->row; i++){
+        Node *row_node = this->first_row[i];
+        if(row_node == nullptr){
+            continue;
+        }else{
+            while(row_node != nullptr){
+                B.add_node(row_node->column, row_node->row, row_node->data);
+                row_node = row_node->next_row;
+
+            }
+        }
+    }
+}
