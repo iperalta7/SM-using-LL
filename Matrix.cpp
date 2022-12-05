@@ -81,3 +81,21 @@ void Matrix::printzeros(int low, int high){
     for (int i=0; i < (high - low); i++)
         std::cout << std::setw(5) << 0.00;
 }
+
+void Matrix::write(){
+    for (int i=0; i < this->row; i++){
+        Node *current = this->first_row[i];       //  Node pointer that points to the current corresponding pointer in the sparse matrix
+        for (int j=0; j < this->col; j++){
+            if (current != nullptr){
+                printzeros(j, current->column);       // finds the column data of the first node, and prints the corresponding zeros in respect
+                j = (*current).column;
+                std::cout << std::setw(5) << (*current).data;  // will then print the actual node's value.
+                current = (*current).next_row;       // changes the pointer to the next node in the row. So now it points to the next node
+            }else{
+                printzeros (j,this->col);                  //  if pointer in the  matrix is null, prints the zeros for that row.
+                j= this->col;
+            }
+        }
+        std::cout << std::endl;
+    }
+}
