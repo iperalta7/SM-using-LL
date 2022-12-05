@@ -139,3 +139,41 @@ int Matrix::add(Matrix B, Matrix &C) {
         return 1;
     }
 }
+
+//our attempt to doing Matrix subtraction
+// an algortihm was still needed to be figured out becasue we cannot just do what we did in matrix add and subtract
+// how
+int Matrix::subtract(Matrix B, Matrix &C){
+    if (this->row != B.row and this->col != B.col) {
+        return 0;
+    }else {
+
+        for(int i = 0; i < this->row; i++){
+            for(int j = 0; j < this->col; j++){
+                Node* curr_row = this->first_row[i];
+                Node* B_row = B.first_row[i];
+                Node* curr_col = this->first_col[j];
+                Node* B_col = B.first_col[j];
+                int total = 0;
+
+                while(curr_row != nullptr ){
+                        while(B_row != nullptr){
+                            if(B_row-> column == j && curr_row->column == j){
+                                total = curr_row->data - B_row->data;
+                            }
+                            B_row = B_row->next_row;
+                        }
+                    curr_row = curr_row->next_row;
+                }
+
+
+
+                if(total != 0){
+                    C.add_node(i, j, total);
+                }
+            }
+        }
+
+        return 1;
+    }
+}
