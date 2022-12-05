@@ -28,6 +28,13 @@ public:
            used in member function: write().
            Prints out a number of zeros based on the difference between the two parameters. */
         void printzeros(int lo, int hi);
+        
+         /* Function to be called when the file stream object in read method which inserts a value that is not equal to zero.
+        Parameters require  the row (i), column (j), and value (val) of the non-zero matrix Node.
+        creates a node and stores the corresponding column, row, and value. It will set the two pointers in the node to nullptr. Then
+         traverses through matrix and finds the node pointer in the respective row and column and set the two internal node pointers to the newly created
+         node*/
+        void add_node(int i, int j, int val);
 
 };
 
