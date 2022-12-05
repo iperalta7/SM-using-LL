@@ -41,6 +41,12 @@ public:
          It has to loop through the num of rows and num of cols to be able to print out the 0, since 0s are not saved in the linked list for storage
          std::setw is used to help for spacing in the console.*/
         void write();
+        
+        /*Add Member Function adds the values of Matrix to the current Matrix object
+         Parameters: an instance of a Matrix object called B
+         Loops through the Lists of Linked Lists by rows and checks the curr nodes corresponding col value to check if
+         they are the same and adds the nodes data to the corresponding positional node of the current Matrix*/
+        int add(Matrix B, Matrix &C);
 
 };
 
