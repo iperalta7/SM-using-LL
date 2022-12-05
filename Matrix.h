@@ -17,6 +17,13 @@ public:
         
         //simply just sets the Lists of Node* pointers to all nullptrs
         void create(int row, int col);
+        
+        /*Parameter: name of file to use (string)
+         reads from the files and all values that are not zero are
+         saved to the corresponding Matrix class. Lists of Linked Lists;
+        */
+        void read_file(std::string fname);
+
 };
 
 
