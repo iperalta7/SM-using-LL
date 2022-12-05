@@ -33,11 +33,19 @@ int main(int argc, char *argv[]) {
            std::cout << "Matrix Multiplication will not work with these two matrices" << std::endl;
        }
 
-   }else if (){ //for addition
+   }else if (choice == "A"){ //for addition
        if(A.add(B, C)){
            std::cout << "\nResulting Matrix from Matrix Addition: \n";
            C.write();
        }else{
            std::cout << "Matrix Addition will not work with these two matrices" << std::endl;
 
+       
+   }else if (choice == "S"){ //for subtraction
+       if(A.subtract(B, C)){
+           std::cout << "\nResulting Matrix from Matrix Subtraction: \n";
+           C.write();
+       }else{
+           std::cout << "Matrix Subtraction will not work with these two matrices" << std::endl;
        }
+   }
