@@ -177,3 +177,33 @@ int Matrix::subtract(Matrix B, Matrix &C){
         return 1;
     }
 }
+
+int Matrix::multiply(Matrix B, Matrix &C){
+    if(this->col != B.row){     //returns 0 if the rule doesn't apply
+        return 0;
+
+    }else {
+        for (int i = 0; i < this->row; i++) {
+            for (int j = 0; j < this->col; j++) {
+                Node *row_node = this->first_row[i]; // initializes two pointers and hold the address to the matrix's pointer for that row and column
+                Node *col_node = B.first_col[j];
+                int total = 0;//  used to assign to the referenced matrix.
+                for (int k = 0; k < this->row; k++) {
+                    if (row_node == nullptr || col_node == nullptr)// if both nodes are null, the multiplication will end up to be 0 anyways so we just break
+                        k = this->row;
+                    else if ((*row_node).column < (*col_node).row) // Compares the index of the row and column pointers.
+                        row_node = (*row_node).next_row;           // If one is less than the other, the lower one is advanced
+                    else if ((*col_node).row < (*row_node).column)
+                        col_node = (*col_node).next_col;
+                    else {
+                        total += (*row_node).data * (*col_node).data;// if there is a match, the datas of the curr row and col nodes are multipled and added to the total
+                        col_node = (*col_node).next_col;          // Both column and row pointers are then advanced
+                        row_node = (*row_node).next_row;
+                    }
+                }
+                C.add_node(i, j, total);// The total data is then stored and added to the resultant matrix
+            }
+        }
+        return 1;
+    }
+}
