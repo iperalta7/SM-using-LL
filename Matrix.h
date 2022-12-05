@@ -23,6 +23,11 @@ public:
          saved to the corresponding Matrix class. Lists of Linked Lists;
         */
         void read_file(std::string fname);
+        
+        /* Parameters requires two integers.
+           used in member function: write().
+           Prints out a number of zeros based on the difference between the two parameters. */
+        void printzeros(int lo, int hi);
 
 };
 

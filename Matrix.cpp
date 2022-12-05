@@ -1,4 +1,6 @@
 #include "Matrix.h"
+#include <iomanip>
+#include <iostream>
 
 //Default Constructor
 Matrix::Matrix() {
@@ -44,3 +46,7 @@ void Matrix::read_file(std::string fname) {
     }
 }
 
+void Matrix::printzeros(int low, int high){
+    for (int i=0; i < (high - low); i++)
+        std::cout << std::setw(5) << 0.00;
+}
