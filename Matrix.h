@@ -35,6 +35,12 @@ public:
          traverses through matrix and finds the node pointer in the respective row and column and set the two internal node pointers to the newly created
          node*/
         void add_node(int i, int j, int val);
+        
+        /*No parameters required
+         The write() member function essentially just prints out the Sparse Matrix representation with the 0s
+         It has to loop through the num of rows and num of cols to be able to print out the 0, since 0s are not saved in the linked list for storage
+         std::setw is used to help for spacing in the console.*/
+        void write();
 
 };
 
