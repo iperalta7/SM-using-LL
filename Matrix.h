@@ -53,6 +53,11 @@ public:
          Loops through the Lists of Linked Lists by rows and checks the curr nodes corresponding col value to check if
          they are the same and subtracts the nodes data to the corresponding positional node of the current Matrix*/
         int subtract(Matrix B, Matrix &C);
+        
+        /*Multiplies two Matrices by having a new empty matrix created and appending the new nodes into Matrix C
+         Parameters: An existing Matrix object called B, Another Matrix object C passed by reference so we can add nodes into it after
+         the algorithm submits a new node*/
+        int multiply(Matrix B, Matrix &C);
 
 };
 
