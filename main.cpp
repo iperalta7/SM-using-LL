@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
   
     //if statement to do what user asks
    if(choice == "M"){ //for multiply
-       if (){
+       if (M.multiply(B,C){
            std::cout << "\nResulting Matrix from Matrix Multiplication: \n" <<std::endl;
            C.write();
        }else{
