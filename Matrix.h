@@ -47,6 +47,12 @@ public:
          Loops through the Lists of Linked Lists by rows and checks the curr nodes corresponding col value to check if
          they are the same and adds the nodes data to the corresponding positional node of the current Matrix*/
         int add(Matrix B, Matrix &C);
+        
+        /*Add Member Function adds the values of Matrix to the current Matrix object
+         Parameters: an instance of a Matrix object called B
+         Loops through the Lists of Linked Lists by rows and checks the curr nodes corresponding col value to check if
+         they are the same and subtracts the nodes data to the corresponding positional node of the current Matrix*/
+        int subtract(Matrix B, Matrix &C);
 
 };
 
