@@ -14,7 +14,9 @@ public:
 
         //Constructor to set size of matrix
         Matrix(int row, int col);
-
+        
+        //simply just sets the Lists of Node* pointers to all nullptrs
+        void create(int row, int col);
 };
 
 
