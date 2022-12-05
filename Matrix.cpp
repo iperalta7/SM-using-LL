@@ -1,6 +1,9 @@
 #include "Matrix.h"
 #include <iomanip>
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include <string> 
 
 //Default Constructor
 Matrix::Matrix() {
@@ -79,7 +82,7 @@ void Matrix::add_node( int i, int j, int val){
 
 void Matrix::printzeros(int low, int high){
     for (int i=0; i < (high - low); i++)
-        std::cout << std::setw(5) << 0.00;
+        std::cout << std::setw(5) << 0;
 }
 
 void Matrix::write(){
