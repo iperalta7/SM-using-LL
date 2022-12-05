@@ -48,4 +48,21 @@ int main(int argc, char *argv[]) {
        }else{
            std::cout << "Matrix Subtraction will not work with these two matrices" << std::endl;
        }
+   }else if(choice == "T"){
+       Matrix D(row_1, col_1);
+       D.create(row_1, col_1);
+       A.transpose(D);
+       std::cout << "Transposed Matrix 1: \n";
+       D.write();
+
+       std::cout << "\n";
+
+       Matrix E(row_1, col_1);
+       E.create(row_1, col_1);
+       B.transpose(E);
+       std::cout << "Transposed Matrix 2: \n";
+       E.write();
+
+   }
+   return 0;
    }
