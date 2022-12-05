@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
            C.write();
        }else{
            std::cout << "Matrix Addition will not work with these two matrices" << std::endl;
-
+       }
        
    }else if (choice == "S"){ //for subtraction
        if(A.subtract(B, C)){
@@ -65,4 +65,4 @@ int main(int argc, char *argv[]) {
 
    }
    return 0;
-   }
+}
