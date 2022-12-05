@@ -8,12 +8,14 @@ int main(int argc, char *argv[]) {
     std::cout << "Matrix 1: " << std::endl;
    Matrix A(row_1, col_1);
    A.create(row_1, col_1);
+    A.read_file(fname1);
 
 
    //creates and reads from file and prints out Matrix 2
    std::cout << "Matrix 2: " << std::endl;
    Matrix B(row_2, col_2);
    B.create(row_2, col_2);
+   B.read_file(fname2);
 
    //creates an object of Matrix C to be passed by reference for certain choices
    Matrix C(row_1, col_2);
