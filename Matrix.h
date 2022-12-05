@@ -58,7 +58,13 @@ public:
          Parameters: An existing Matrix object called B, Another Matrix object C passed by reference so we can add nodes into it after
          the algorithm submits a new node*/
         int multiply(Matrix B, Matrix &C);
-
+        
+        /* Parameters: A Matrix object named B passed by reference.
+          Loops through Lists of Linked Lists up until defined rows for class
+          When a node is given it will create a new node using B's add_node method but use the curr
+          node's row, col public values and its actual value and place the row in the col param, col in the row param and value in the val param
+         */
+        void transpose(Matrix &B );
 };
 
 
