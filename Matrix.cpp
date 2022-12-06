@@ -21,7 +21,7 @@ Matrix::Matrix(int row, int col){
 
 void Matrix::create(int row, int col){
 
-    for ( int x = 0; x < row ; x ++ ){
+    for ( int x = 0; x < row ; x ++ ){ //sets the corresponding array of node pointers to nullptrs up to value of rows given
         this->first_row[x] = nullptr;
         }
 
@@ -81,7 +81,7 @@ void Matrix::add_node( int i, int j, int val){
 }
 
 void Matrix::printzeros(int low, int high){
-    for (int i=0; i < (high - low); i++)
+    for (int i=0; i < (high - low); i++) //prints the zeros based on the difference of hi and lo
         std::cout << std::setw(5) << 0;
 }
 
@@ -107,42 +107,40 @@ int Matrix::add(Matrix B, Matrix &C) {
     if (this->row != B.row and this->col != B.col) {
         return 0;
     }else {
-
-        for(int i = 0; i < this->row; i++){
+      // loop
+        for(int i = 0; i < this->row; i++){ //2d loops to so we can add_node based i, j.
             for(int j = 0; j < this->col; j++){
-                Node* curr_row = this->first_row[i];
-                Node* B_row = B.first_row[i];
-                Node* curr_col = this->first_col[j];
+                Node* curr_row = this->first_row[i]; //set curr_row node pointer to the current i iteration in the list of node pointers of ccurrent matrix class
+                Node* B_row = B.first_row[i]; //set B_row node ptr to curr i iteration of list in B matrix
+                Node* curr_col = this->first_col[j]; //these two are unused
                 Node* B_col = B.first_col[j];
-                int total = 0;
+                int total = 0; //init value that will up two corresponding values
 
-                while(curr_row != nullptr ){
-                    if(curr_row->column == j){
+                while(curr_row != nullptr ){ //loop through end of row linked list
+                    if(curr_row->column == j){ //if column for node matches j then we add node's data to total and break
                         total += curr_row->data;
+                        break;
                     }
                     curr_row = curr_row->next_row;
                 }
-
-                while(B_row != nullptr){
-                    if(B_row-> column == j){
+                while(B_row != nullptr){ //loop through end of B_rows index of first in row list
+                    if(B_row-> column == j){ //same thing if
                         total += B_row->data;
+                        break;
                     }
                     B_row = B_row->next_row;
                 }
-
-                    if(total != 0){
-                        C.add_node(i, j, total);
+                    if(total != 0){ //wont save if total us 0
+                        C.add_node(i, j, total); //then we add node to C
                     }
             }
         }
-
         return 1;
     }
 }
 
 //our attempt to doing Matrix subtraction
-// an algortihm was still needed to be figured out becasue we cannot just do what we did in matrix add and subtract
-// how
+// same thing with add except we set total = curr_row->data if the col matches and subtract the nodes data when it loops through B matrix.
 int Matrix::subtract(Matrix B, Matrix &C){
   if (this->row != B.row and this->col != B.col) {
     return 0;
@@ -159,6 +157,7 @@ int Matrix::subtract(Matrix B, Matrix &C){
         while(curr_row != nullptr ){
           if(curr_row->column == j){
             total = curr_row->data;
+            break;
           }
           curr_row = curr_row->next_row;
         }
@@ -166,6 +165,7 @@ int Matrix::subtract(Matrix B, Matrix &C){
         while(B_row != nullptr){
           if(B_row-> column == j){
             total -= B_row->data;
+            break;
           }
           B_row = B_row->next_row;
         }
@@ -212,16 +212,17 @@ int Matrix::multiply(Matrix B, Matrix &C){
 
 
 void Matrix::transpose(Matrix &B){
-    for(int i = 0; i < this->row; i++){
-        Node *row_node = this->first_row[i];
-        if(row_node == nullptr){
-            continue;
-        }else{
-            while(row_node != nullptr){
-                B.add_node(row_node->column, row_node->row, row_node->data);
-                row_node = row_node->next_row;
 
-            }
+
+    for(int i = 0; i < this->row; i++) {
+      Node *row_node = this->first_row[i];
+      if (row_node == nullptr) {
+        continue;
+      } else {
+        while (row_node != nullptr) {
+          B.add_node(row_node->column, row_node->row, row_node->data);
+          row_node = row_node->next_row;
         }
+      }
     }
 }

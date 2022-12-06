@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
        }
    }else if(choice == "T"){
        Matrix D(row_1, col_1);
-       D.create(row_1, col_1);
+       D.create(col_2, row_1);
        A.transpose(D);
        std::cout << "Transposed Matrix 1: \n";
        D.write();
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
        std::cout << "\n";
 
        Matrix E(row_1, col_1);
-       E.create(row_1, col_1);
+       E.create(col_1, row_1);
        B.transpose(E);
        std::cout << "Transposed Matrix 2: \n";
        E.write();
