@@ -186,7 +186,7 @@ int Matrix::multiply(Matrix B, Matrix &C){
 
     }else {
         for (int i = 0; i < this->row; i++) {
-            for (int j = 0; j < this->col; j++) {
+            for (int j = 0; j < C.col; j++) {
                 Node *row_node = this->first_row[i]; // initializes two pointers and hold the address to the matrix's pointer for that row and column
                 Node *col_node = B.first_col[j];
                 int total = 0;//  used to assign to the referenced matrix.
