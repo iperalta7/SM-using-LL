@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <string> 
+#include <string>
 
 //Default Constructor
 Matrix::Matrix() {
@@ -39,7 +39,7 @@ void Matrix::read_file(std::string fname) {
         std::istringstream ss(str);
         int token;
         while (ss >> token) {
-            if(token != 0 ){
+            if(token != 0){
                 this->add_node(i, j, token); //adds to matrix with corresponding row and col vals
             }
             j++;
@@ -54,7 +54,7 @@ void Matrix::add_node( int i, int j, int val){
     (*a).data = val;
     (*a).row = i;
     (*a).column = j;
-    (*a).next_col = nullptr;
+    (*a).next_row = nullptr;
     (*a).next_col = nullptr;
     // initializes new node and stores the row, column, data datas.
     // pointers in the new node are set to NULL.
@@ -175,7 +175,6 @@ int Matrix::subtract(Matrix B, Matrix &C){
         }
       }
     }
-
     return 1;
   }
 }
@@ -203,7 +202,9 @@ int Matrix::multiply(Matrix B, Matrix &C){
                         row_node = (*row_node).next_row;
                     }
                 }
-                C.add_node(i, j, total);// The total data is then stored and added to the resultant matrix
+                if (total != 0 ){
+                  C.add_node(i, j, total);// The total data is then stored and added to the resultant matrix
+                }
             }
         }
         return 1;
@@ -212,8 +213,6 @@ int Matrix::multiply(Matrix B, Matrix &C){
 
 
 void Matrix::transpose(Matrix &B){
-
-
     for(int i = 0; i < this->row; i++) {
       Node *row_node = this->first_row[i];
       if (row_node == nullptr) {
